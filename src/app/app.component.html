@@ -1,7 +1,11 @@
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="deafault navbar-brand" href="#"><h2>Pokedex</h2></a>
-    
+    <div class="logo">
+      <a class="deafault navbar-brand" href="#"><h2>
+          <img src="../assets/pokedexlogo.png" alt="" class="logo img-responsive">
+      </h2></a>
+  </div>
+
     <div class="x1 default container" id="navbarSupportedContent">
       <form class="form-inline my-2 my-lg-0">
         <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
@@ -12,13 +16,13 @@
 
 
 <div *ngFor = "let item of pokemonList" class="container x1">
-    <div class="card_columns">
+    <div>
         <div>
           <a href="">
             <img src="{{getImg(item.url)}}" alt="">
           </a>
         </div>
-        <div>
+        <div class="">
           <span>{{getId(item.url)}}] </span> 
           <a href="">
             <strong>{{item.name | titlecase}}</strong>
