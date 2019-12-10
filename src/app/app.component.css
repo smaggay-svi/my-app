@@ -1,0 +1,38 @@
+.flex-container {
+    display: flex;
+    flex-wrap: nowrap;
+    /* background-color: DodgerBlue; */
+  }
+  
+  .flex-container > div {
+    /* background-color: black; */
+    width: 10px;
+    margin: 10px;
+    text-align: center;
+    line-height: 75px;
+    font-size: 30px;
+  }
+
+  .x1 {
+      /* background-color: blue; */
+      width: auto;
+      padding: auto;
+      margin-left: 20px;
+      float: left;
+  }
+
+  .default {
+      margin-top: 30px;
+      margin-bottom: 30px;      
+  }
+
+span {
+    align-content: center;
+    align-self: center;
+    text-align: center;
+    align-self: center;
+}
+
+a {
+  text-decoration: none;
+}

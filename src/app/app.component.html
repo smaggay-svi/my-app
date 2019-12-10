@@ -1,9 +1,28 @@
-<h3>Pokemon List</h3>
 
-<div *ngFor = "let item of pokemonList">
-    <span>{{item.name}}</span>
-    <span>{{getId(item.url)}}</span>
-    <div>
-      <img src="{{getImg(item.url)}}">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="deafault navbar-brand" href="#"><h2>Pokedex</h2></a>
+    
+    <div class="x1 default container" id="navbarSupportedContent">
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form>
+    </div>
+  </nav>
+
+
+<div *ngFor = "let item of pokemonList" class="container x1">
+    <div class="card_columns">
+        <div>
+          <a href="">
+            <img src="{{getImg(item.url)}}" alt="">
+          </a>
+        </div>
+        <div>
+          <span>{{getId(item.url)}}] </span> 
+          <a href="">
+            <strong>{{item.name | titlecase}}</strong>
+          </a>
+        </div>
     </div>
 </div>

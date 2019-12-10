@@ -12,8 +12,8 @@ export class AppComponent {
 
   public pokemondata = [];
   public pokemonList;
-  public pokemonDetails = [];
-  public pokemonDetail;
+  // public pokemonDetails = [];
+  // public pokemonDetail;
 
   public pokemonType = [];
 
@@ -21,13 +21,11 @@ export class AppComponent {
 
   ngOnInit() {
     this.myservice.getData().subscribe((data) => {
-      this.pokemondata = Array.from(Object.keys(data), k=>data[k]);
+      this.pokemondata = Array.from(Object.keys(data), pokeName=>data[pokeName]);
       
       console.log(this.pokemondata);
       
       this.pokemonList = this.pokemondata[3];
-
-
 
     });
   }
@@ -42,18 +40,5 @@ export class AppComponent {
   return imgUrl;
 
   }
-
-  getPokeDetails(url: String) {
-    this.myservice.getDetails(url).subscribe((data) => {
-      this.pokemonDetails = Array.from(Object.keys(data), k=>data[k]);
-
-      console.log(this.getPokeDetails);
-
-      this.pokemonDetail = this.getPokeDetails[1];
-
-      
-    });
-  }
-
 
 }
