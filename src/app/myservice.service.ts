@@ -6,7 +6,7 @@ import { HttpClient } from "@angular/common/http";
 })
 
 export class MyserviceService {
-  private finaldata = [];
+  // private finaldata = [];
   private apiUrl = "https://pokeapi.co/api/v2/pokemon";
   // private apiUrl = "http://jsonplaceholder.typicode.com/users";
 
@@ -17,8 +17,12 @@ export class MyserviceService {
 
   getData() {
     // return this.results[3];
-    return this.http.get(`${this.apiUrl}/?limit=949`);
+    return this.http.get(`${this.apiUrl}/?limit=807`);
     // return this.http.get(this.apiUrl);
+  }
+
+  getDetails(pokeName: String) {
+    return this.http.get(`${this.apiUrl}/${pokeName}/`);
   }
 
 }
