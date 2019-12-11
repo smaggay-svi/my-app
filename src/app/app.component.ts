@@ -14,9 +14,10 @@ import { PokemondetailsComponent } from './pokemondetails/pokemondetails.compone
 })
 
 export class AppComponent {
-  @Output() selected = new EventEmitter();
-  @Output() opened = new EventEmitter();
+  // @Output() selected = new EventEmitter();
+  @Output() onClick = new EventEmitter();
   title = 'my-app';
+
 
   pokemondata: any;
   pokemonDetail: any;
@@ -53,9 +54,9 @@ export class AppComponent {
       this.pokemonDetail = data['types'];
       console.log(this.pokemonDetail);
 
-
       this.dialog.open(PokemondetailsComponent, {
         height: '300px',
+
         data: {indPokemon: this.pokemonDetail}
 
       })
