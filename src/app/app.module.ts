@@ -10,20 +10,32 @@ import { HttpClientModule } from "@angular/common/http";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MatCardModule } from "@angular/material/card";
+import { PokemondetailsComponent } from './pokemondetails/pokemondetails.component';
+import { MatDialogModule } from "@angular/material/dialog";
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    PokemondetailsComponent
+  ],
+  entryComponents: [
+    PokemondetailsComponent 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MatCardModule
+    MatCardModule,
+    MatDialogModule
   ],
   providers: [MyserviceService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  exports: [
+    PokemondetailsComponent
+  ]
 })
-export class AppModule { }
+export class AppModule { 
+
+}

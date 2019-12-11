@@ -1,5 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 import { MyserviceService } from "./myservice.service";
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatDialogConfig } from "@angular/material";
+import { PokemondetailsComponent } from './pokemondetails/pokemondetails.component';
+
+
+
+
 
 @Component({
   selector: 'app-root',
@@ -8,25 +14,26 @@ import { MyserviceService } from "./myservice.service";
 })
 
 export class AppComponent {
+  @Output() selected = new EventEmitter();
+  @Output() opened = new EventEmitter();
   title = 'my-app';
 
-  public pokemondata = [];
-  public pokemonList;
-  // public pokemonDetails = [];
-  // public pokemonDetail;
+  pokemondata: any;
+  pokemonDetail: any;
 
-  public pokemonType = [];
-
-  constructor(private myservice: MyserviceService) {}
+  constructor(
+    private dialog: MatDialog,
+    private myservice: MyserviceService
+    ) {}
 
   ngOnInit() {
-    this.myservice.getData().subscribe((data) => {
-      this.pokemondata = Array.from(Object.keys(data), pokeName=>data[pokeName]);
-      
-      console.log(this.pokemondata);
-      
-      this.pokemonList = this.pokemondata[3];
+    this.getPokemonList();
+  }
 
+  getPokemonList() {
+    this.myservice.getData().subscribe((data) => {
+      console.log(data['results']);
+      this.pokemondata = data['results'];
     });
   }
 
@@ -38,7 +45,21 @@ export class AppComponent {
   const id = url.split('/');
   const imgUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id[6]}.png`;
   return imgUrl;
+  }
 
+ 
+  getPokeDetails(url: String) {
+    this.myservice.getDetails(url).subscribe((data) => {
+      this.pokemonDetail = data['types'];
+      console.log(this.pokemonDetail);
+
+
+      this.dialog.open(PokemondetailsComponent, {
+        height: '300px',
+        data: {indPokemon: this.pokemonDetail}
+
+      })
+    });
   }
 
 }

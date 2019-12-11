@@ -1,35 +1,3 @@
-
-  <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="deafault navbar-brand" href="#"><h2>
-          <img class="logo" src="https://cdn.bulbagarden.net/upload/4/4b/Pok%C3%A9dex_logo.png">
-      </h2></a>
-
-    <div class="x1 default container" id="navbarSupportedContent">
-      <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-      </form>
-    </div>
-  </nav> -->
-
-
-<!-- <div *ngFor = "let item of pokemonList" class="container x1">
-    <div>
-        <div>
-          <a href="">
-            <img src="{{getImg(item.url)}}" alt="">
-          </a>
-        </div>
-        <div class="">
-          <span>{{getId(item.url)}}] </span> 
-          <a href="">
-            <strong>{{item.name | titlecase}}</strong>
-          </a>
-        </div>
-    </div>
-</div> -->
-
-
 <div class="wrapper non-select">
   <nav class="navbar navbar-expand-lg navbar-light bg-light nav-height">
       <a class="navbar-brand" href="#"><h2>
@@ -45,7 +13,7 @@
   </nav>
 
   <div class="default">
-    <mat-card *ngFor="let item of pokemonList" class="mat-list-option x1 non-select" (click)="selected.emit(poke.id) && opened.emit(poke.id)">
+    <mat-card (click)="getPokeDetails(item.url)" *ngFor="let item of pokemondata" class="mat-list-option x1 non-select">
       <mat-card-header>
         <mat-card-title>
             <!-- <a href="#"><img src="{{getImg(item.url)}}" alt=""></a> -->

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -14,8 +15,8 @@ export class MyserviceService {
     return this.http.get(`${this.apiUrl}/?limit=807`);
   }
 
-  // getDetails(pokeName: String) {
-  //   return this.http.get(`${this.apiUrl}/${pokeName}/`);
-  // }
+  getDetails(url: String) {
+    return this.http.get(`${url}`);
+  }
 
 }
