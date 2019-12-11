@@ -1,6 +1,7 @@
 .flex-container {
     display: flex;
     flex-wrap: nowrap;
+    padding: auto;
     /* background-color: DodgerBlue; */
   }
   
@@ -15,15 +16,24 @@
 
   .x1 {
       /* background-color: blue; */
-      width: auto;
+      /* width: auto;
       padding: auto;
+      margin-left: 20px; */
       margin-left: 20px;
-      float: left;
+      margin-right: 20px;
+      margin-bottom: 20px;;
+      overflow: hidden;
+      display: inline-block;
+      /* padding: 5px 5px 5px 5px; */
+      /* float: left; */
+      text-align: center;
   }
 
   .default {
-      margin-top: 60px;
-      margin-bottom: 30px;      
+      margin-top: 30px;
+      margin-bottom: 30px;  
+      padding: auto;    
+      text-align: center;
   }
 
 span {
@@ -38,11 +48,17 @@ a {
 }
 
 .logo {
-  height: 75px;
+  height: 65px;
   float: left;
-  margin-bottom: 40px;
+  /* margin-bottom: 40px; */
   padding: 5px 5px 5px 5px;
+  vertical-align: middle;
 }
 
+.non-select {
+  user-select: none;
+}
 
-
+/* .nav-height {
+  height: 100px;;
+} */
