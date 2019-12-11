@@ -15,7 +15,7 @@ import { PokemondetailsComponent } from './pokemondetails/pokemondetails.compone
 
 export class AppComponent {
   // @Output() selected = new EventEmitter();
-  @Output() onClick = new EventEmitter();
+  // @Output() onClick = new EventEmitter();
   title = 'my-app';
 
 
