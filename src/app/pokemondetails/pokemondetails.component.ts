@@ -11,7 +11,7 @@ import { AppComponent } from "../app.component";
   styleUrls: ['./pokemondetails.component.css']
 })
 export class PokemondetailsComponent implements OnInit {
-  @Input() pokemon: any;
+  // @Input() pokemon: any;
 
   constructor(
     

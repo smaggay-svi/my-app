@@ -23,7 +23,7 @@ export class AppComponent {
   pokemonDetail: any;
 
   constructor(
-    private dialog: MatDialog,
+    // private dialog: MatDialog,
     private myservice: MyserviceService
     ) {}
 
@@ -54,12 +54,12 @@ export class AppComponent {
       this.pokemonDetail = data['types'];
       console.log(this.pokemonDetail);
 
-      this.dialog.open(PokemondetailsComponent, {
-        height: '300px',
+      // this.dialog.open(PokemondetailsComponent, {
+      //   height: '300px',
 
-        data: {indPokemon: this.pokemonDetail}
+      //   data: {indPokemon: this.pokemonDetail}
 
-      })
+      // })
     });
   }
 
