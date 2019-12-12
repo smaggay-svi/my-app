@@ -12,7 +12,7 @@
     </div>
   </nav>
 
-  <div class="default">
+  <div class="default" *ngIf="pokemondata">
     <mat-card *ngFor="let item of pokemondata" class="mat-list-option x1 non-select">
       <mat-card-header (click)="getPokeDetails(item.url)">
         <mat-card-title>
