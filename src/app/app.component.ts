@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component, Output, EventEmitter, Inject } from '@angular/core';
 import { MyserviceService } from "./myservice.service";
 import { MatDialog, 
         MatDialogRef, 
@@ -7,6 +7,7 @@ import { MatDialog,
 } from "@angular/material/dialog";
 import { PokemondetailsComponent } from './pokemondetails/pokemondetails.component';
 import { analyzeAndValidateNgModules } from '@angular/compiler';
+import { MatInputModule } from "@angular/material/input";
 
 
 @Component({
@@ -28,10 +29,13 @@ export class AppComponent {
   pokemonName: any;
   pokemonAbility: any;
 
+  pokemonArray: any;
+
 
   constructor(
     private dialog: MatDialog,
-    private myservice: MyserviceService
+    private myservice: MyserviceService,
+    // @Inject(MAT_DIALOG_DATA) public maindata: any
     ) {}
 
   ngOnInit() {
@@ -40,8 +44,10 @@ export class AppComponent {
 
   getPokemonList() {
     this.myservice.getData().subscribe((data) => {
-      console.log(data['results']);
       this.pokemondata = data['results'];
+      console.log(data['results']);
+      // this.pokemonArray = this.pokemondata.name;
+      // console.log(this.pokemonArray[3]);
     });
   }
 
@@ -66,7 +72,7 @@ export class AppComponent {
       console.log(this.pokemonSprites);
 
       this.dialog.open(PokemondetailsComponent, {
-        height: '575px',
+        height: '600px',
         width: '350px',
         data: {
           pokeType: this.pokemonType,

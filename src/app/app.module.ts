@@ -12,14 +12,18 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCardModule } from "@angular/material/card";
 import { PokemondetailsComponent } from './pokemondetails/pokemondetails.component';
 import { MatDialogModule, MatDialog } from "@angular/material/dialog";
-import { MatPaginatorModule } from "@angular/material";
-
+import { MatPaginatorModule, MatFormField } from "@angular/material";
+import { FilterPipe } from './filter.pipe';
+import { MatInputModule } from "@angular/material/input";
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     PokemondetailsComponent,
+    FilterPipe
     // MatDialog
+    // MatFormField
   ],
   entryComponents: [
     PokemondetailsComponent 
@@ -32,7 +36,11 @@ import { MatPaginatorModule } from "@angular/material";
     MatCardModule,
     MatDialogModule,
     MatPaginatorModule,
+    FormsModule,
+    ReactiveFormsModule
+    // FilterPipe
     // MatDialog
+    // MatFormField
   ],
   providers: [MyserviceService],
   bootstrap: [AppComponent],
