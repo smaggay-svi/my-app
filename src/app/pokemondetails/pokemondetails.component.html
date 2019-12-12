@@ -19,7 +19,7 @@
       <h2 class="subheader">{{data?.pokeName.name | uppercase}}</h2>
       <hr>
     </mat-card-header>
-    <img mat-card-image src="{{data?.pokeImg.front_default}}">
+    <img mat-card-image [src]="data?.pokeImg.front_default">
     <mat-card-content>
       <div>
         <span class="typeIcon2"><strong>Types: </strong></span>
@@ -28,7 +28,7 @@
         </div>
       </div>
       <div>
-          <span class="typeIcon2"><strong>Ablities: </strong></span>
+          <span class="typeIcon2"><strong>Abilities: </strong></span>
           <div *ngFor="let ability of data?.pokeAbility" class="typeIcon2">
               <span class="typeIcon3">{{ability.ability.name | titlecase}}</span>
             </div>

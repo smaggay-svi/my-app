@@ -23,7 +23,7 @@
         <mat-card-subtitle>
           <h3>
             <strong>#{{getId(item.url)}}: {{item.name | titlecase}}</strong>
-            <span><img src="{{getImg(item.url)}}" alt=""></span>
+            <span><img [src]="getImg(item.url)" alt=""></span>
           </h3>
         </mat-card-subtitle>
       </mat-card-header>
