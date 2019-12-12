@@ -1,5 +1,38 @@
 <!-- <h4>Sample {{data?.indPokemon[0].type.name}}</h4> -->
 
-<div *ngFor="let detail of data?.indPokemon">
-  {{detail.type.name}}
-</div>
+
+<!-- <span><img class="img-size" src="{{data?.pokeImg.front_default}}" alt=""></span> -->
+
+<!-- <span style="float: left;"><h1>{{data?.pokeName.name | titlecase}}</h1></span> -->
+
+
+
+<!-- <h4>Abilities</h4>
+<div *ngFor="let ability of data?.pokeAbility">
+  <span>{{ability.ability.name | titlecase}}</span>
+</div> -->
+
+
+
+<mat-card class="example-card non-select">
+    <mat-card-header>
+      <h2 class="subheader">{{data?.pokeName.name | uppercase}}</h2>
+      <hr>
+    </mat-card-header>
+    <img mat-card-image src="{{data?.pokeImg.front_default}}">
+    <mat-card-content>
+      <div>
+        <span class="typeIcon2"><strong>Types: </strong></span>
+        <div *ngFor="let detail of data?.pokeType" class="{{detail.type.name}} typeIcon">
+          <span>{{detail.type.name | titlecase}}</span>
+        </div>
+      </div>
+      <div>
+          <span class="typeIcon2"><strong>Ablities: </strong></span>
+          <div *ngFor="let ability of data?.pokeAbility" class="typeIcon2">
+              <span>{{ability.ability.name | titlecase}}</span>
+            </div>
+      </div>
+    </mat-card-content>
+
+  </mat-card>

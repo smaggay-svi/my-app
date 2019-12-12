@@ -22,8 +22,12 @@ export class AppComponent {
 
 
   pokemondata: any;
-  pokemonDetail: any;
-  pokemoninfo: any;
+  
+  pokemonType: any;
+  pokemonSprites: any;
+  pokemonName: any;
+  pokemonAbility: any;
+
 
   constructor(
     private dialog: MatDialog,
@@ -54,13 +58,22 @@ export class AppComponent {
  
   getPokeDetails(url: String) {
     this.myservice.getDetails(url).subscribe((data) => {
-      this.pokemonDetail = data['types'];
-      console.log(this.pokemonDetail);
+      this.pokemonType = data['types'];
+      this.pokemonSprites = data['sprites'];
+      this.pokemonName = data['species'];
+      this.pokemonAbility = data['abilities'];
+      console.log(this.pokemonType);
+      console.log(this.pokemonSprites);
 
       this.dialog.open(PokemondetailsComponent, {
-        height: '350px',
-        width: '300px',
-        data: {indPokemon: this.pokemonDetail}
+        height: '575px',
+        width: '350px',
+        data: {
+          pokeType: this.pokemonType,
+          pokeImg: this.pokemonSprites,
+          pokeName: this.pokemonName,
+          pokeAbility: this.pokemonAbility
+        }
       })
     });
   }
