@@ -1,7 +1,9 @@
 import { Component, OnInit, Optional, Inject } from '@angular/core';
-import { MAT_DIALOG_DATA } from "@angular/material";
+import { MAT_DIALOG_DATA, MatDialogRef } from "@angular/material";
 import { Input } from '@angular/core';
 import { AppComponent } from "../app.component";
+import { FormBuilder, FormGroup } from '@angular/forms';
+
 
 
 
@@ -13,11 +15,14 @@ import { AppComponent } from "../app.component";
 export class PokemondetailsComponent implements OnInit {
   // @Input() pokemon: any;
 
-  constructor(
-    
-  ) { }
+  form: FormGroup;
+  pokemoninfo: any;
+
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any){}
 
   ngOnInit() {
+
+    }
   }
 
-}
+

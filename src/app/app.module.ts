@@ -12,6 +12,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCardModule } from "@angular/material/card";
 import { PokemondetailsComponent } from './pokemondetails/pokemondetails.component';
 import { MatDialogModule } from "@angular/material/dialog";
+import { MatPaginatorModule } from "@angular/material";
 
 
 @NgModule({
@@ -28,14 +29,16 @@ import { MatDialogModule } from "@angular/material/dialog";
     HttpClientModule,
     BrowserAnimationsModule,
     MatCardModule,
-    MatDialogModule
+    MatDialogModule,
+    MatPaginatorModule
   ],
   providers: [MyserviceService],
   bootstrap: [AppComponent],
-  exports: [
-    PokemondetailsComponent
-  ]
+  // exports: [
+  //   PokemondetailsComponent
+  // ]
 })
+
 export class AppModule { 
 
 }

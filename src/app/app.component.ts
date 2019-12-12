@@ -1,7 +1,13 @@
 import { Component, Output, EventEmitter } from '@angular/core';
 import { MyserviceService } from "./myservice.service";
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatDialogConfig } from "@angular/material";
+import { MatDialog, 
+        MatDialogRef, 
+        MAT_DIALOG_DATA, 
+        MatDialogConfig
+} from "@angular/material";
 import { PokemondetailsComponent } from './pokemondetails/pokemondetails.component';
+import { analyzeAndValidateNgModules } from '@angular/compiler';
+
 
 
 
@@ -21,9 +27,10 @@ export class AppComponent {
 
   pokemondata: any;
   pokemonDetail: any;
+  pokemoninfo: any;
 
   constructor(
-    // private dialog: MatDialog,
+    private dialog: MatDialog,
     private myservice: MyserviceService
     ) {}
 
@@ -54,15 +61,13 @@ export class AppComponent {
       this.pokemonDetail = data['types'];
       console.log(this.pokemonDetail);
 
-      // this.dialog.open(PokemondetailsComponent, {
-      //   height: '300px',
-
-      //   data: {indPokemon: this.pokemonDetail}
-
-      // })
+      this.dialog.open(PokemondetailsComponent, {
+        height: '350px',
+        width: '300px',
+        data: {indPokemon: this.pokemonDetail}
+      })
     });
   }
-
 }
 
 
