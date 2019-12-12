@@ -11,7 +11,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MatCardModule } from "@angular/material/card";
 import { PokemondetailsComponent } from './pokemondetails/pokemondetails.component';
-import { MatDialogModule } from "@angular/material/dialog";
+import { MatDialogModule, MatDialog } from "@angular/material/dialog";
 import { MatPaginatorModule } from "@angular/material";
 
 
@@ -30,7 +30,8 @@ import { MatPaginatorModule } from "@angular/material";
     BrowserAnimationsModule,
     MatCardModule,
     MatDialogModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatDialog
   ],
   providers: [MyserviceService],
   bootstrap: [AppComponent],
