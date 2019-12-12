@@ -4,13 +4,9 @@ import { MatDialog,
         MatDialogRef, 
         MAT_DIALOG_DATA, 
         MatDialogConfig
-} from "@angular/material";
+} from "@angular/material/dialog";
 import { PokemondetailsComponent } from './pokemondetails/pokemondetails.component';
 import { analyzeAndValidateNgModules } from '@angular/compiler';
-
-
-
-
 
 
 @Component({
