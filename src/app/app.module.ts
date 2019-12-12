@@ -18,7 +18,8 @@ import { MatPaginatorModule } from "@angular/material";
 @NgModule({
   declarations: [
     AppComponent,
-    PokemondetailsComponent
+    PokemondetailsComponent,
+    // MatDialog
   ],
   entryComponents: [
     PokemondetailsComponent 
@@ -31,7 +32,7 @@ import { MatPaginatorModule } from "@angular/material";
     MatCardModule,
     MatDialogModule,
     MatPaginatorModule,
-    MatDialog
+    // MatDialog
   ],
   providers: [MyserviceService],
   bootstrap: [AppComponent],
