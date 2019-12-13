@@ -17,12 +17,14 @@ import { FilterPipe } from './filter.pipe';
 import { MatInputModule } from "@angular/material/input";
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatSelectModule } from "@angular/material/select";
+import { ListfilterPipe } from './listfilter.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     PokemondetailsComponent,
-    FilterPipe
+    FilterPipe,
+    ListfilterPipe
     // MatDialog
     // MatFormField
   ],

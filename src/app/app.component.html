@@ -11,21 +11,27 @@
       </form>
     </div>
         
-    <div>
-      <mat-label>Filter By: </mat-label>
-      <mat-form-field>
-        <mat-label> Pokemon Type</mat-label>
-        <mat-select>
-          <mat-option *ngFor="let type of pokemonTypeList" [(value)]="type.value">
-              {{type.name}}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
-    </div>
+    <!-- DropDownList -->
+    <div class="select">
+        <select name="types" (change)="displayFilter()" [(ngModel)]="listTypeUrl">
+            <option selected value="">All Pokemon</option>
+            <option *ngFor="let type of pokemonTypeList" [value]="type.url">
+              {{type.name | titlecase}}            
+            </option>
+            <!-- <option (onchange)="displayFilter('')"></option> -->
+        </select>
+      </div>
   </nav>
+</div>
 
-  <div class="default" *ngIf="pokemondata">
-    <mat-card *ngFor="let item of pokemondata | filter: searchText | filter: searchList" class="mat-list-option x1 non-select">
+<!-- Main -->
+
+<ng-container *ngIf = "isFiltered == 0; then main; else filteredData">
+</ng-container>
+
+<ng-template #main>
+  <div class="default">
+    <mat-card cols=5 *ngFor="let item of pokemondata | filter: searchText" class="mat-list-option x1 non-select">
       <mat-card-header (click)="getPokeDetails(item.url)">
         <mat-card-title>
         </mat-card-title>
@@ -38,5 +44,19 @@
       </mat-card-header>
     </mat-card>
   </div>
-</div>
+</ng-template>
 
+<ng-template #filteredData>
+  <mat-card *ngFor="let item of pokemonDisplayFilter" class="mat-list-option x1 non-select">
+    <mat-card-header (click)="getPokeDetails(item.pokemon.url)">
+      <mat-card-title>
+      </mat-card-title>
+      <mat-card-subtitle>
+        <h3>
+          <strong>#{{getId(item.pokemon.url)}}: {{item.pokemon.name | titlecase}}</strong>
+          <span><img [src]="getImg(item.pokemon.url)"></span>
+        </h3>
+      </mat-card-subtitle>
+    </mat-card-header>
+  </mat-card>
+</ng-template>

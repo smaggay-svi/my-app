@@ -30,8 +30,14 @@ export class AppComponent {
   pokemonName: any;
   pokemonAbility: any;
   pokemonTypeList: any;
+  pokemonDisplayFilter: any;
+
+  isFiltered: number = 0;
 
   pokemonArray: any;
+
+
+  private listTypeUrl: String ="";
 
 
   constructor(
@@ -60,9 +66,13 @@ export class AppComponent {
   }
 
   getImg(url: string) {
-  const id = url.split('/');
-  const imgUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id[6]}.png`;
-  return imgUrl;
+    const id = url.split('/');
+    let imgUrl = "";
+    if (id[6].length < 4) {
+      imgUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id[6]}.png`;
+    }
+    
+    return imgUrl;
   }
 
  
@@ -95,6 +105,27 @@ export class AppComponent {
       console.log(this.pokemonTypeList);
     });
   }
+
+
+  displayFilter() {
+    if (this.listTypeUrl.length > 0) {
+      this.myservice.getDisplayFilter(this.listTypeUrl).subscribe((data) => {
+      this.pokemonDisplayFilter = data['pokemon'];
+      console.log(this.pokemonDisplayFilter);
+      });
+      this.isFiltered++;
+
+    } else {
+      this.isFiltered = 0;
+    }    
+    console.log(this.listTypeUrl);
+    console.log(this.isFiltered);
+    // alert(this.displayFilter);
+  }
+
+  // clearFilter() {
+  //   this.isFiltered = 0;
+  // }
 
 
 }

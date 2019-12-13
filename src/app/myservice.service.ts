@@ -24,4 +24,8 @@ export class MyserviceService {
     return this.http.get(`${this.typeUrl}`);
   }
 
+  getDisplayFilter(url: String) {
+    return this.http.get(`${url}`);
+  }
+
 }
