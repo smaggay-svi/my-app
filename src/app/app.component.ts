@@ -8,6 +8,7 @@ import { MatDialog,
 import { PokemondetailsComponent } from './pokemondetails/pokemondetails.component';
 import { analyzeAndValidateNgModules } from '@angular/compiler';
 import { MatInputModule } from "@angular/material/input";
+import { MatSelectModule } from "@angular/material/select";
 
 
 @Component({
@@ -28,6 +29,7 @@ export class AppComponent {
   pokemonSprites: any;
   pokemonName: any;
   pokemonAbility: any;
+  pokemonTypeList: any;
 
   pokemonArray: any;
 
@@ -40,6 +42,8 @@ export class AppComponent {
 
   ngOnInit() {
     this.getPokemonList();
+
+    this.getPokemonTypes();
   }
 
   getPokemonList() {
@@ -83,6 +87,16 @@ export class AppComponent {
       })
     });
   }
+
+
+  getPokemonTypes() {
+    this.myservice.getTypeList().subscribe((data) => {
+      this.pokemonTypeList = data['results'];
+      console.log(this.pokemonTypeList);
+    });
+  }
+
+
 }
 
 

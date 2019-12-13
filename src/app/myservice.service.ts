@@ -8,6 +8,7 @@ import { HttpClient } from "@angular/common/http";
 
 export class MyserviceService {
   private apiUrl = "https://pokeapi.co/api/v2/pokemon";
+  private typeUrl = "https://pokeapi.co/api/v2/type/";
 
   constructor(private http: HttpClient) {}
 
@@ -17,6 +18,10 @@ export class MyserviceService {
 
   getDetails(url: String) {
     return this.http.get(`${url}`);
+  }
+
+  getTypeList() {
+    return this.http.get(`${this.typeUrl}`);
   }
 
 }

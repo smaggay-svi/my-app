@@ -7,23 +7,32 @@
     <div class="x1 default" id="navbarSupportedContent">
       <form class="form-inline my-2 my-lg-0">
         <input class="form-control mr-sm-2" name="searchtab" type="search" placeholder="Search" aria-label="Search" [(ngModel)]="searchText">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit" name="searchtab">Search</button>
+        <!-- <button class="btn btn-outline-success my-2 my-sm-0" type="submit" name="searchtab">Search</button> -->
       </form>
+    </div>
+        
+    <div>
+      <mat-label>Filter By: </mat-label>
+      <mat-form-field>
+        <mat-label> Pokemon Type</mat-label>
+        <mat-select>
+          <mat-option *ngFor="let type of pokemonTypeList" [(value)]="type.value">
+              {{type.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
     </div>
   </nav>
 
   <div class="default" *ngIf="pokemondata">
-    <mat-card *ngFor="let item of pokemondata | filter: searchText" class="mat-list-option x1 non-select">
+    <mat-card *ngFor="let item of pokemondata | filter: searchText | filter: searchList" class="mat-list-option x1 non-select">
       <mat-card-header (click)="getPokeDetails(item.url)">
         <mat-card-title>
-            <!-- <a href="#"><img src="{{getImg(item.url)}}" alt=""></a> -->
-            <!-- {{item}} -->
-            <!-- {{item.name}} -->
         </mat-card-title>
         <mat-card-subtitle>
           <h3>
             <strong>#{{getId(item.url)}}: {{item.name | titlecase}}</strong>
-            <span><img [src]="getImg(item.url)" alt=""></span>
+            <span><img [src]="getImg(item.url)"></span>
           </h3>
         </mat-card-subtitle>
       </mat-card-header>
